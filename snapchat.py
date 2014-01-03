@@ -119,7 +119,12 @@ def download_unread(username, password):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print "Usage: python snapchat.py username password"
+    if len(sys.argv) not in [2, 3]:
+        print "Usage: python snapchat.py username [password]"
     else:
-        download_unread(sys.argv[1], sys.argv[2])
+        try:
+            password = sys.argv[2]
+        except IndexError:
+            import getpass
+            password = getpass.getpass()
+        download_unread(sys.argv[1], password)
