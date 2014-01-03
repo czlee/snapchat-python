@@ -14,7 +14,7 @@ STATIC_TOKEN = "m198sOkJEn37DjqZ32lpRu76xmw288xSQ9"
 
 ENCRYPT_KEY_2 = "M02cnQ51Ji97vwT4"
 BS = 16
-pad = lambda s: s + (BS - len(s) % BS) * chr(BS - len(s) % BS) 
+pad = lambda s: s + (BS - len(s) % BS) * chr(BS - len(s) % BS)
 unpad = lambda s : s[0:-ord(s[-1])]
 
 
@@ -86,7 +86,7 @@ def download_and_decrypt_url(img_url, item_id, is_vid):
 
 def get_url(img_id, username, auth_token):
     time = str(getTime())
-    url = "https://feelinsonice.appspot.com/ph/blob?id={}".format(img_id) 
+    url = "https://feelinsonice.appspot.com/ph/blob?id={}".format(img_id)
     url += "&username=" + username + "&timestamp=" + time + "&req_token=" + createToken(auth_token, time)
     return url
 
